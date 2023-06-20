@@ -46,6 +46,7 @@ const HousingRentAllowance = () => {
         setTaxableHra(0);
     };
     return (
+        <>
         <Box m={0} p={0} width={"80%"} margin={"auto"} border={"1px solid gray"}>
             <Box
                 bg={"rgb(235,235,235)"}
@@ -272,6 +273,8 @@ const HousingRentAllowance = () => {
                     </Box>
                 </Box>
             </form>
+           
+            </Box>
             <Box
                 display={"flex"}
                 justifyContent={"center"}
@@ -294,7 +297,7 @@ const HousingRentAllowance = () => {
                     title={"Reset"}
                 />
             </Box>
-        </Box>
+        </>
     );
 };
 
