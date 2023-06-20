@@ -13,7 +13,7 @@ const LPP = ({ option }) => {
 
     return (
         <>
-            {(option == "HUF" || option == "AOPs/BOI") && (
+            {(option === "HUF" || option === "AOPs/BOI") && (
                 <Box
                     display={"flex"}
                     flexDirection={{ base: "column", md: "row" }}
@@ -38,7 +38,7 @@ const LPP = ({ option }) => {
                 </Box>
             )}
 
-            {option == "Co-operative Society" && (
+            {option === "Co-operative Society" && (
                 <Box display={"flex"} flexDir={"column"}>
                     <Box
                         display={"flex"}
