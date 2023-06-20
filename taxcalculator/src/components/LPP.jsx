@@ -1,9 +1,7 @@
 import { Box, FormControl, Input, Select, Text } from "@chakra-ui/react";
 import React, { useState } from "react";
-import CustomButton from "./CustomButton";
 
 const LPP = ({ option }) => {
-    console.log(option);
     const [netTaxableIncome, setNetTaxableIncome] = useState("");
     const [incomeTax, setIncomeTax] = useState("");
     const [surcharge, setSurcharge] = useState("");
@@ -12,37 +10,6 @@ const LPP = ({ option }) => {
     const [relief, setRelief] = useState("");
     const [tdsCredit, setTdsCredit] = useState("");
     const [assessedTax, setAssessedTax] = useState("");
-
-    const calculateLLPTax = () => {
-        const netIncome = parseFloat(netTaxableIncome) || 0;
-        const tax = parseFloat(incomeTax) || 0;
-        const surchargeAmount = parseFloat(surcharge) || 0;
-        const cessAmount = parseFloat(cess) || 0;
-        const reliefAmount = parseFloat(relief) || 0;
-        const tdsCreditAmount = parseFloat(tdsCredit) || 0;
-        const assessedTaxAmount = parseFloat(assessedTax) || 0;
-
-        const totalTaxLiability =
-            tax +
-            surchargeAmount +
-            cessAmount -
-            reliefAmount -
-            tdsCreditAmount +
-            assessedTaxAmount;
-
-        setTotalTaxLiability(totalTaxLiability.toFixed(2));
-    };
-
-    const handleReset = () => {
-        setNetTaxableIncome("");
-        setIncomeTax("");
-        setSurcharge("");
-        setCess("");
-        setTotalTaxLiability("");
-        setRelief("");
-        setTdsCredit("");
-        setAssessedTax("");
-    };
 
     return (
         <>

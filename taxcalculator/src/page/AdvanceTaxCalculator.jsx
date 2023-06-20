@@ -5,6 +5,12 @@ import LPP from "../components/LPP";
 import CustomButton from "../components/CustomButton";
 const AdvanceTaxCalculator = () => {
     const [taxPayer, setTaxPayer] = useState("");
+    const handleReset = () => {
+
+    }
+    const calculateLLPTax = () => {
+
+    }
     return (
         <>
             <Box m={0} p={0} width={"80%"} margin={"auto"} border={"1px solid gray"}>
@@ -82,14 +88,14 @@ const AdvanceTaxCalculator = () => {
                 <CustomButton
                     bg={"red.400"}
                     color={"white"}
-                    // onClick={calculateLLPTax}
+                    onClick={calculateLLPTax}
                     title={"Calculate"}
                 />
 
                 <CustomButton
                     bg={"gray.400"}
                     color={"white"}
-                    // onClick={handleReset}
+                    onClick={handleReset}
                     title={"Reset"}
                 />
             </Box>
