@@ -1,11 +1,16 @@
-import logo from './logo.svg';
-import './App.css';
+import { Box } from "@chakra-ui/react";
+import HomeButton from "./components/HomeButton";
+import Routing from "./routing/Routing";
+import { useLocation } from 'react-router-dom';
 
 function App() {
+  const location = useLocation()
   return (
-    <div className="App">
-    
-    </div>
+    <Box>
+      {location.pathname === "/" ? <></> : <HomeButton />}
+
+      <Routing />
+    </Box>
   );
 }
 
