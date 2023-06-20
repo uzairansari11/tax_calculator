@@ -7,6 +7,7 @@ import {
     Input,
     Text,
 } from "@chakra-ui/react";
+import CustomButton from "../components/CustomButton";
 
 const HousingRentAllowance = () => {
     const [basicSalary, setBasicSalary] = useState(0);
@@ -34,6 +35,16 @@ const HousingRentAllowance = () => {
         setExemptedHra(hraExemption);
         setTaxableHra(taxableHra);
     };
+    const handleReset = () => {
+        setBasicSalary(0);
+        setDaSalary(0);
+        setCommission(0);
+        setHraReceived(0);
+        setRentPaid(0);
+        setIsMetroCity(false);
+        setExemptedHra(0);
+        setTaxableHra(0);
+    };
     return (
         <Box m={0} p={0} width={"80%"} margin={"auto"} border={"1px solid gray"}>
             <Box
@@ -47,16 +58,18 @@ const HousingRentAllowance = () => {
             </Box>
             <Box mt={2}>
                 <Text
-                    width={"fit-content"}
+                    width={{ base: "100%", md: "fit-content" }}
                     bg={"rgb(59,154,198)"}
                     px={6}
                     py={4}
                     color={"white"}
+                    textAlign={{ base: "center", md: "left" }}
                 >
                     HOUSE RENT ALLOWANCE
                 </Text>
             </Box>
             <form>
+                {/* basic salary section */}
                 <Box
                     display={"flex"}
                     flexDirection={{ base: "column", md: "row" }}
@@ -81,7 +94,7 @@ const HousingRentAllowance = () => {
                         </FormControl>
                     </Box>
                 </Box>
-
+                {/* DA forming part of salary section */}
                 <Box
                     display={"flex"}
                     flexDirection={{ base: "column", md: "row" }}
@@ -259,28 +272,27 @@ const HousingRentAllowance = () => {
                     </Box>
                 </Box>
             </form>
-            <Box display={"flex"} justifyContent={"center"}
-                px={10} flexDirection={{ base: "column", md: 'row' }}
-                gap={4} py={4}>
-                <Button bg="red.400" color={"white"} onClick={calculateHRA}>
-                    Calculate
-                </Button>
-                <Button
-                    bg="gray.400"
+            <Box
+                display={"flex"}
+                justifyContent={"center"}
+                px={10}
+                flexDirection={{ base: "column", md: "row" }}
+                gap={4}
+                py={4}
+            >
+                <CustomButton
+                    bg={"red.400"}
                     color={"white"}
-                    onClick={() => {
-                        setBasicSalary(0);
-                        setDaSalary(0);
-                        setCommission(0);
-                        setHraReceived(0);
-                        setRentPaid(0);
-                        setIsMetroCity(false);
-                        setExemptedHra(0);
-                        setTaxableHra(0);
-                    }}
-                >
-                    Reset
-                </Button>
+                    onClick={calculateHRA}
+                    title={"Calculate"}
+                />
+
+                <CustomButton
+                    bg={"gray.400"}
+                    color={"white"}
+                    onClick={handleReset}
+                    title={"Reset"}
+                />
             </Box>
         </Box>
     );

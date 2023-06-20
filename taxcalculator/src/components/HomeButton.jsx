@@ -11,7 +11,7 @@ const HomeButton = () => {
     };
 
     return (
-        <Box textAlign="center" position={"fixed"} top={4} left={4}>
+        <Box textAlign="center" position={"fixed"} top={4} left={4} zIndex={10}>
             <IconButton
                 aria-label="Home"
                 icon={<FaHome />}
