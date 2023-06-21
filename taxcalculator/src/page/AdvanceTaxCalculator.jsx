@@ -3,14 +3,12 @@ import React, { useState } from "react";
 import { taxOptions } from "../utils/taxoptions";
 import LPP from "../components/LPP";
 import CustomButton from "../components/CustomButton";
+import { useToast } from "@chakra-ui/react";
 const AdvanceTaxCalculator = () => {
+    const toast = useToast();
     const [taxPayer, setTaxPayer] = useState("");
-    const handleReset = () => {
-
-    }
-    const calculateLLPTax = () => {
-
-    }
+    const handleReset = () => { };
+    const calculateLLPTax = () => { };
     return (
         <>
             <Box m={0} p={0} width={"80%"} margin={"auto"} border={"1px solid gray"}>
@@ -77,28 +75,18 @@ const AdvanceTaxCalculator = () => {
                     taxPayer === "AOPs/BOI" ||
                     taxPayer === "Co-operative Society") && <LPP option={taxPayer} />}
             </Box>
-            <Box
-                display={"flex"}
-                justifyContent={"center"}
-                px={10}
-                flexDirection={{ base: "column", md: "row" }}
-                gap={4}
-                py={4}
-            >
-                <CustomButton
-                    bg={"red.400"}
-                    color={"white"}
-                    onClick={calculateLLPTax}
-                    title={"Calculate"}
-                />
 
-                <CustomButton
-                    bg={"gray.400"}
-                    color={"white"}
-                    onClick={handleReset}
-                    title={"Reset"}
-                />
-            </Box>
+            {taxPayer === "Individual" &&
+                toast({
+                    title: "Progress",
+                    description: "Please Try Other Options!",
+                    status: "warning",
+                    duration: 5000,
+                    isClosable: true,
+                    position: 'top'
+                })}
+
+          
         </>
     );
 };
